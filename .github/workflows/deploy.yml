@@ -15,7 +15,7 @@ jobs:
       image: node:16
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
-      MONGODB_CLUSTER_ADDRESS: mongodb #same as label used in services
+      MONGODB_CLUSTER_ADDRESS: mongodb #same as label used in services, otherwise use 127.0.0.1:27017 if job won't run in the container
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
