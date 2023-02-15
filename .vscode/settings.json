@@ -1,0 +1,6 @@
+{
+  "window.zoomLevel": 0,
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///home/kuba/Desktop/github-actions-udemy/gh-actions-docker/.github/workflows/deploy.yml"
+  }
+}
