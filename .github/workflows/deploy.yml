@@ -1,12 +1,17 @@
-name: Deployment (Container)
+name: Containers and service containers
 on:
   push:
     branches:
       - main
       - dev
+  workflow_dispatch:
+
+#defining variables used accross all jobs
 env:
   CACHE_KEY: node-deps
   MONGODB_DB_NAME: gha-demo
+
+
 jobs:
   test:
     environment: dev
@@ -45,15 +50,15 @@ jobs:
       - name: Output information
         run: |
           echo "MONGODB_USERNAME: $MONGODB_USERNAME"
-  # deploy:
-  #   needs: test
-  #   runs-on: ubuntu-latest
-  #   environment: dev
-  #   steps:
-  #     - name: Output information
-  #       env:
-  #         PORT: 3000
-  #       run: |        
-  #         echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
-  #         echo "MONGODB_USERNAME: $MONGODB_USERNAME"
-  #         echo "${{ env.PORT }}"
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Output information
+        env:
+          PORT: 3000
+        run: |        
+          echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
+          echo "MONGODB_USERNAME: $MONGODB_USERNAME"
+          echo "${{ env.PORT }}"
