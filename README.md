@@ -1,0 +1,1 @@
+Simple example of GH Actions worflow running inside the container communicating with service container running MongoDB
